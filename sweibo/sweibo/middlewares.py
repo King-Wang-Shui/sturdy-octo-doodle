@@ -10,6 +10,7 @@ from itemadapter import is_item, ItemAdapter
 import time, datetime
 from jinja2 import Template
 from playwright.sync_api import sync_playwright
+from scrapy.http import HtmlResponse
 from scrapy.utils.project import get_project_settings
 import cookie
 import textwrap
@@ -149,12 +150,15 @@ class PlaywrightMiddleware:
             # 点击登录按钮
             page.wait_for_timeout(500)
             page.click('[node-type="submitBtn"]')
-            code_input = input()
-            page.fill('[value="验证码"]', code_input)
+            page.fill('[value="验证码"]', input())
             page.click('[node-type="submitBtn"]')
-
-            # 等待登录成功
-            page.wait_for_selector('[title=全部关注]')
+            for i in range(3):
+                try:
+                # 等待登录成功
+                    page.wait_for_selector('[title=全部关注]')
+                    break
+                except Exception:
+                    continue
 
             # 获取cookies和headers信息
             self.cookies = {cookie['name']: cookie['value'] for cookie in context.cookies()}
@@ -167,7 +171,6 @@ class PlaywrightMiddleware:
             template = Template(textwrap.dedent("""cookies = {{ cookies }}
             headers = {{ headers }}
             last_time = {{ last_time }}
-            
             """))
             f.write(template.render(cookies=self.cookies, headers=self.headers, last_time=self.last_login_time))
             f.close()

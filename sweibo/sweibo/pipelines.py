@@ -54,7 +54,7 @@ class SaveToExcelPipeline:
     def __init__(self):
         self.data = []
         self.result_path = 'spider_result'
-        self.filename = f"{self.result_path}/output_update.xlsx"
+        self.filename = f"{self.result_path}/output.xlsx"
 
     def open_spider(self, spider):
         self.data = []
@@ -64,9 +64,10 @@ class SaveToExcelPipeline:
     def close_spider(self, spider):
         df = pd.DataFrame(self.data)
         writer = pd.ExcelWriter(self.filename, engine='openpyxl')
+        # 读取原有的Excel文件数据
         try:
-            origin_data = pd.read_excel(self.filename, sheet_name=None, engine='openpyxl')
-        except Exception:
+            origin_data = pd.read_excel(self.filename, sheet_name=None)
+        except FileNotFoundError:
             origin_data = {}
         for module in df['module'].unique():
             module_data = df[df['module'] == module]
@@ -79,7 +80,6 @@ class SaveToExcelPipeline:
             deduplicated_df = merged_data.drop_duplicates(keep='last')
             # 将去重后的数据追加写入Excel文件的相应sheet页
             deduplicated_df.to_excel(writer, sheet_name=module, index=False)
-
         writer.close()
 
     def process_item(self, item, spider):

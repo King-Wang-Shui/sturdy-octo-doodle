@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3e794883-2c2d-4be5-bbd4-e3c781d7f4e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sweibo/cookie.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitee/PULL_REQUEST_TEMPLATE.zh-CN.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapy.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/items.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/middlewares.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/pipelines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/spiders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/spiders/weibo_top.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/sweibo/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/sweibo/middlewares.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/sweibo/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/sweibo/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/sweibo/spiders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/sweibo/spiders/__init__.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2afPg5A9s9GxRNZkmwSwIjC5uW3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/projects/sweibo/sweibo"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\sweibo\sweibo\sweibo\spiders" />
+      <recent name="D:\projects\sweibo\sweibo\sweibo" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="spider" type="PythonConfigurationType" factoryName="Python">
+      <module name="sweibo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sweibo/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e794883-2c2d-4be5-bbd4-e3c781d7f4e1" name="Changes" comment="" />
+      <created>1704706767646</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704706767646</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../tool/Python312/Lib/site-packages/scrapy/crawler.py</url>
+          <line>385</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
