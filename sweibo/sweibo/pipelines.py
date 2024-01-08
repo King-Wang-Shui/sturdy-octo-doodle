@@ -66,7 +66,7 @@ class SaveToExcelPipeline:
         writer = pd.ExcelWriter(self.filename, engine='openpyxl')
         # 读取原有的Excel文件数据
         try:
-            origin_data = pd.read_excel(self.filename, sheet_name=None)
+            origin_data = pd.read_excel(self.filename, sheet_name=None, engine='openpyxl')
         except FileNotFoundError:
             origin_data = {}
         for module in df['module'].unique():
