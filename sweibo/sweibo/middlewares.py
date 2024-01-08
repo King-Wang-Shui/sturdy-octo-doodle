@@ -141,10 +141,10 @@ class PlaywrightMiddleware:
 
             # 输入用户名和密码
             page.wait_for_timeout(1000)
-            page.fill('#loginname', '2369997588@qq.com')
+            page.fill('#loginname', input())
             page.wait_for_timeout(500)
-            page.fill('[type="password"]', '196833bb')
-            page.fill('#loginname', '2369997588@qq.com')
+            page.fill('[type="password"]', input())
+            page.fill('#loginname', input())
 
             # 点击登录按钮
             page.wait_for_timeout(500)
