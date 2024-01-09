@@ -63,6 +63,7 @@ class SaveToExcelPipeline:
 
     def close_spider(self, spider):
         df = pd.DataFrame(self.data)
+        check_item = ['author', 'content']
         writer = pd.ExcelWriter(self.filename, engine='openpyxl')
         # 读取原有的Excel文件数据
         try:
@@ -77,7 +78,7 @@ class SaveToExcelPipeline:
             else:
                 merged_data = module_data
             # 去重并保留最新数据
-            deduplicated_df = merged_data.drop_duplicates(keep='last')
+            deduplicated_df = merged_data.drop_duplicates(subset=check_item, keep='last')
             # 将去重后的数据追加写入Excel文件的相应sheet页
             deduplicated_df.to_excel(writer, sheet_name=module, index=False)
         writer.close()
@@ -118,9 +119,15 @@ class SaveToExcelPipeline:
         if re.match('\d+小时前', date):
             hour = re.match('(\d+)', date).group(1)
             date = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time() - float(hour) * 60 * 60))
+        if re.match('\d+秒前', date):
+            second = re.match('(\d+)', date).group(1)
+            date = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time() - float(second)))
         if re.match('昨天.*', date):
             date = re.match('昨天(.*)', date).group(1).strip()
             date = time.strftime('%Y-%m-%d', time.localtime(time.time() - 24 * 60 * 60)) + ' ' + date
+        if re.match('今天.*', date):
+            date = re.match('今天(.*)', date).group(1).strip()
+            date = time.strftime('%Y-%m-%d', time.localtime(time.time())) + ' ' + date
         if re.match('\d{2}-\d{2}', date):
             date = time.strftime('%Y-', time.localtime()) + date + ' 00:00'
         return date

@@ -168,7 +168,8 @@ class PlaywrightMiddleware:
             # 更新最后登录时间
             self.last_login_time = time.time()
             f = open('./cookie.py', 'w', encoding='utf-8')
-            template = Template(textwrap.dedent("""cookies = {{ cookies }}
+            template = Template(textwrap.dedent("""
+            cookies = {{ cookies }}
             headers = {{ headers }}
             last_time = {{ last_time }}
             """))
