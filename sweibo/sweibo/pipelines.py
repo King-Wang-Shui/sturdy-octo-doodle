@@ -67,7 +67,7 @@ class SaveToExcelPipeline:
         # 读取原有的Excel文件数据
         try:
             origin_data = pd.read_excel(self.filename, sheet_name=None, engine='openpyxl')
-        except FileNotFoundError:
+        except Exception:
             origin_data = {}
         for module in df['module'].unique():
             module_data = df[df['module'] == module]
@@ -101,9 +101,10 @@ class SaveToExcelPipeline:
                     if 'video' in image_url:
                         image_path = (f"{module_path}/gif_{item['name']}_"
                                       f"{item['author']}_{image_urls.index(image_url)}.mp4")
-                    f = open(image_path, "wb")
-                    f.write(response.content)
-                    f.close()
+                    if not os.path.exists(image_path):
+                        f = open(image_path, "wb")
+                        f.write(response.content)
+                        f.close()
                     image_path_list.append(image_path)
                 item['picture'] = image_path_list
         self.data.append(dict(item))
