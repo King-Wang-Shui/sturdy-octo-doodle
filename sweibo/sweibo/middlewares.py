@@ -145,7 +145,6 @@ class PlaywrightMiddleware:
             page.fill('#loginname', input())
             page.wait_for_timeout(500)
             page.fill('[type="password"]', input())
-            page.fill('#loginname', input())
 
             # 点击登录按钮
             page.wait_for_timeout(500)

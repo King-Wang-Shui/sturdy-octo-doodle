@@ -119,7 +119,7 @@ class SaveToExcelPipeline:
         if re.match('\d+小时前', date):
             hour = re.match('(\d+)', date).group(1)
             date = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time() - float(hour) * 60 * 60))
-        if re.match('\d+秒前', date):
+        if re.match('\d+秒前?', date):
             second = re.match('(\d+)', date).group(1)
             date = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time() - float(second)))
         if re.match('昨天.*', date):
@@ -130,4 +130,11 @@ class SaveToExcelPipeline:
             date = time.strftime('%Y-%m-%d', time.localtime(time.time())) + ' ' + date
         if re.match('\d{2}-\d{2}', date):
             date = time.strftime('%Y-', time.localtime()) + date + ' 00:00'
+        if re.match('(\d{2})月(\d{2})日(.*)', date):
+            date = re.match('(\d{2})月(\d{2})日(.*)', date)
+            date = time.strftime('%Y-', time.localtime()) + date.group(1).strip() + "-" + date.group(
+                2).strip() + date.group(3)
+        if re.match('(\d+)年(\d{2})月(\d{2})日(.*)', date):
+            date = re.match('(\d+)年(\d{2})月(\d{2})日(.*)', date)
+            date = f'{date.group(1).strip()}-{date.group(2).strip()}-{date.group(3).strip()}' + date.group(4)
         return date
