@@ -7,6 +7,7 @@
 """
 
 import scrapy
+
 from ..items import sweiboItem
 
 

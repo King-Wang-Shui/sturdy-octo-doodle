@@ -3,17 +3,17 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
-import scrapy
+import textwrap
 # useful for handling different item types with a single interface
-from itemadapter import is_item, ItemAdapter
-import time, datetime
+import time
+
+import scrapy
 from jinja2 import Template
 from playwright.sync_api import sync_playwright
-from scrapy.http import HtmlResponse
+from scrapy import signals
 from scrapy.utils.project import get_project_settings
+
 import cookie
-import textwrap
 
 
 class SweiboSpiderMiddleware:

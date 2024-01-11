@@ -4,18 +4,17 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-# useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
-import json
-import pandas as pd
 import datetime
+# useful for handling different item types with a single interface
+import json
 import os
-import requests
-from openpyxl import load_workbook
-from openpyxl.drawing.image import Image
-import re, time
-from .items import sweiboItem
+import re
+import time
 
+import pandas as pd
+import requests
+
+from .items import sweiboItem
 
 current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
