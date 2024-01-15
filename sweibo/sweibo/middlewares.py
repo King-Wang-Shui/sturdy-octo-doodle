@@ -125,7 +125,7 @@ class PlaywrightMiddleware:
 
     def should_relogin(self):
         settings = get_project_settings()
-        relogin_interval = settings.get('RELOGIN_INTERVAL', 3600*8)  # 默认为1小时
+        relogin_interval = settings.get('RELOGIN_INTERVAL', 3600*24*7)  # 默认为7天
         current_time = time.time()
         if self.last_login_time is None or current_time - self.last_login_time > relogin_interval:
             return True

@@ -17,42 +17,6 @@ class WeiboTopSpider(scrapy.Spider):
     start_urls = ['https://s.weibo.com/top/summary?cate=entrank']
     # cates = ['realtimehot']
     cates = ['realtimehot', 'socialevent', 'entrank', 'sport', 'game']
-    cookies = {
-        '_s_tentry': 'passport.weibo.com',
-        'Apache': '2160923397666.412.1703745674190',
-        'SINAGLOBAL': '2160923397666.412.1703745674190',
-        'ULV': '1703745674195:1:1:1:2160923397666.412.1703745674190:',
-        'XSRF-TOKEN': 'VDx1JqiXSrimJyCp_7ITkzT1',
-        'UOR': ',,www.baidu.com',
-        'login_sid_t': '4734bafd6583dc3113dfe7a45528490f',
-        'cross_origin_proto': 'SSL',
-        'wb_view_log': '1463*9151.75',
-        'PC_TOKEN': '7d614a578b',
-        'WBStorage': '267ec170|undefined',
-        'SSOLoginState': '1704339358',
-        'SUB': '_2A25IklfODeRhGeNG7lIT8CjPwj6IHXVr7tUGrDV8PUJbkNB-LUTEkW1NS1_oSHpe5_Nyu72qLGARiqbz0DYSmTMX',
-        'SUBP': '0033WrSXqPxfM725Ws9jqgMF55529P9D9Wh2TdBo0hVOmGSr6cTSWXkQ5JpX5KzhUgL.Fo-RSK5Eehq01Kz2dJLoIEXLxKqL1hnL1K2LxKBLBonL12BLxKqL1hML1KzLxKML1-2L1hBLxK-L1KeLBKqt',
-        'WBPSESS': 'Dt2hbAUaXfkVprjyrAZT_FBdOUymDnwY3cFZT4fpsm_vFTLaVOJKfnikLryFCvr5fS0i11c5lopXALDets8iUwpKHd2Oq-v5Dy-lGvkNvESbEjIut3-yfqvn1nXYB_M5DQWCOwd1r1L6D9h_7TToxf_PUet-uJqK-4b3orw-XaUNjQsLe4VrVKs2XYWd1b3U4ieVoGBgd65R8FWbK5lPhA==',
-    }
-
-    headers = {
-        'authority': 'weibo.com',
-        'accept': 'application/json, text/plain, */*',
-        'accept-language': 'zh-CN,zh;q=0.9',
-        'client-version': 'v2.44.45',
-        # 'cookie': '_s_tentry=passport.weibo.com; Apache=2160923397666.412.1703745674190; SINAGLOBAL=2160923397666.412.1703745674190; ULV=1703745674195:1:1:1:2160923397666.412.1703745674190:; XSRF-TOKEN=VDx1JqiXSrimJyCp_7ITkzT1; UOR=,,www.baidu.com; login_sid_t=4734bafd6583dc3113dfe7a45528490f; cross_origin_proto=SSL; wb_view_log=1463*9151.75; PC_TOKEN=7d614a578b; WBStorage=267ec170|undefined; SSOLoginState=1704339358; SUB=_2A25IklfODeRhGeNG7lIT8CjPwj6IHXVr7tUGrDV8PUJbkNB-LUTEkW1NS1_oSHpe5_Nyu72qLGARiqbz0DYSmTMX; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9Wh2TdBo0hVOmGSr6cTSWXkQ5JpX5KzhUgL.Fo-RSK5Eehq01Kz2dJLoIEXLxKqL1hnL1K2LxKBLBonL12BLxKqL1hML1KzLxKML1-2L1hBLxK-L1KeLBKqt; WBPSESS=Dt2hbAUaXfkVprjyrAZT_FBdOUymDnwY3cFZT4fpsm_vFTLaVOJKfnikLryFCvr5fS0i11c5lopXALDets8iUwpKHd2Oq-v5Dy-lGvkNvESbEjIut3-yfqvn1nXYB_M5DQWCOwd1r1L6D9h_7TToxf_PUet-uJqK-4b3orw-XaUNjQsLe4VrVKs2XYWd1b3U4ieVoGBgd65R8FWbK5lPhA==',
-        'referer': 'https://weibo.com/',
-        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"Windows"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-        'server-version': 'v2024.01.03.1',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'x-requested-with': 'XMLHttpRequest',
-        'x-xsrf-token': 'VDx1JqiXSrimJyCp_7ITkzT1',
-    }
 
     def start_requests(self):
         for cate in self.cates:
@@ -88,8 +52,8 @@ class WeiboTopSpider(scrapy.Spider):
             new_item['module'] = item['module']
             new_item['name'] = item['name']
             new_item['hot'] = item['hot']
-            new_item['author'] = news.css(' p[node-type="feed_list_content"]::attr(nick-name)').get()
-            new_item['author'] = news.xpath('.//p[@node-type="feed_list_content"]/@nick-name').get().strip()
+            new_item['author'] = news.css(' p[node-type="feed_list_content"]::attr(nick-name)').get() or news.xpath(
+                './/p[@node-type="feed_list_content"]/@nick-name').get()
             try:
                 new_item['public_time'] = news.xpath('.//div[@class="from"]/a[1]/text()').get().strip()
             except:

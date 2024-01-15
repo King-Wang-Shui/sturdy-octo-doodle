@@ -88,10 +88,10 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
 
 # Set settings whose default value is deprecated to a future-proof value
-RELOGIN_INTERVAL = 3600*8
+RELOGIN_INTERVAL = 3600*24*7
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.selectreactor.SelectReactor"
 # TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
-LOG_LEVEL = 'ERROR'
+LOG_LEVEL = 'DEBUG'
 # PLAYWRIGHT_BROWSER_TYPE = 'chromium'

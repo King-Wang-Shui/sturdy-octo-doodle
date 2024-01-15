@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9e8795a-ee9a-4a36-b0c8-e551f42ba75e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sweibo/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sweibo/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sweibo/spiders/weibo_top.py" beforeDir="false" afterPath="$PROJECT_DIR$/sweibo/spiders/weibo_top.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,5 +76,16 @@
       <updated>1704335961010</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../../tool/Python312/Lib/site-packages/scrapy/utils/defer.py</url>
+          <line>282</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
